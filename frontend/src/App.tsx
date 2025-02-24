@@ -1,9 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
 import Home from "./Home/Home";
 import Products from "./Products/Products";
+import Orders from "./Orders/Orders";
 
 function App() {
   const openMenu = () =>{
@@ -29,8 +31,9 @@ function App() {
                         <a href="index.html">Destroyed Presence</a>
                     </div>
                     <div className="header-links">
-                      <link to="/">Home</link>
-                      <link to="/catalog">Catalog</link>
+                      <Link to="/">Home</Link>
+                      <Link to="/catalog">Catalog</Link>
+                      <Link to="/orders">Orders</Link>
                     </div>
                     
                 </header>   
@@ -54,9 +57,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/catalog" element={<Products />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/orders/:id" element={<OrderDetail />} />
             </Routes>
         </main>
-        ls public
 
         <footer className="footer">
             &copy; 2025 Destroyed Presence
