@@ -2,6 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Product from './Products/Products';
+import Home from './Home/Home';
+import Orders from './Orders/Orders'
+
+
 function App() {
   const openMenu = () =>{
     document.querySelector(".sidebar")?.classList.add("open");
@@ -24,6 +30,11 @@ function App() {
                         <button onClick={openMenu}>&#9776;</button>
                         <a href="index.html">Destroyed Presence</a>
                     </div>
+                    <div className="header-links">
+                        <Link to="/">Home</Link>
+                        <Link to="/catalog">Catalog</Link>
+                        <Link to="/orders">Orders</Link>
+                    </div>
                 </header>   
             </div>
             <div className="header-links">
@@ -40,7 +51,14 @@ function App() {
                 <li>  <a href="index.html">Shirts</a>  </li>            
             </ul>  
         </aside>
-
+        <main className="main">
+            <Routes>
+                <Route path="/"element={<Home />}/>
+                <Route path="/catalog"element={<Product />}/>
+                <Route path="/orders"element={<Orders />}/>
+                <Route path="/order/:id" element={<OrderDetail/>}/>
+            </Routes>
+        </main>
         <main className="main">
             <div className="content">
 
