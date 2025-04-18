@@ -34,7 +34,7 @@ function Products(){
         <div className="content">
             <ul className="products">
     {products.map((product) => (
-        <li key={product.name}>
+        <li key={product.id}>
             <div className="product">
                 <img
                     className="product-image"
